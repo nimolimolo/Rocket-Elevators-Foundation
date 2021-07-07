@@ -102,4 +102,27 @@ namespace :dwh do
       conn.exec_prepared("dimcustomers", customers[i])
     end
   end
+
+  task intervention: :environment do
+
+    require "faker"
+
+    result = ["Success", "Failure", "Incomplete"]
+    status = ["Pending", "In Progress", "Interrupted", "Resumed", "Complete"]
+
+    50.times do |i|
+      intervention = FactIntervention.create!(
+        Employee_ID: rand(50),
+        Building_ID: rand(50),
+        Battery_ID: rand(100),
+        Column_ID: rand(300),
+        Elevator_ID: rand(1000),
+        Start_date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now),
+        End_date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now),
+        Result: result.sample,
+        Report: Faker::Lorem.sentence(word_count: 3),
+        Status: status.sample,
+      )
+    end
+  end
 end
