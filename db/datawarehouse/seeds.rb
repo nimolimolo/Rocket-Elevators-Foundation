@@ -1,8 +1,5 @@
 require "faker"
 
-
-puts 'Before seed'
-
 result = ["Success", "Failure", "Incomplete"]
 status = ["Pending", "In Progress", "Interrupted", "Resumed", "Complete"]
 

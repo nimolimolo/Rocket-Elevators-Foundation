@@ -27,6 +27,8 @@ gem 'figaro', '~> 1.2'
 gem 'faraday', '~> 1.4', '>= 1.4.3'
 gem 'oauth2', '~> 1.4', '>= 1.4.7'
 
+gem 'graphql'
+
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -102,3 +104,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # gem 'rubygems' 
 gem 'twilio-ruby', '~> 5.55.0'
 
+
+gem 'graphiql-rails', group: :development
