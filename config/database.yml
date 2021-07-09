@@ -5,7 +5,7 @@ default: &default
   host: <%= ENV['DB_HOST'] %>
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
-  url: "mysql://codeboxx:Codeboxx1!:codeboxx.cq6zrczewpu2.us-east-1.rds.amazonaws.com:3306/lukagasic"
+  url: <%= ENV['MYSQL_URL'] %>
 
 development:
  <<: *default
@@ -23,7 +23,7 @@ datawarehouse_development:
   adapter: postgresql
   encoding: unicode
   port: 5432
-  url: postgres://codeboxx:Codeboxx1!:codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com:5432/lukagasic
+  url: <%= ENV['PG_URL'] %>
   
 datawarehouse_production:
   host: <%= ENV['DB_HOST2'] %>
@@ -33,4 +33,4 @@ datawarehouse_production:
   adapter: postgresql
   encoding: unicode
   port: 5432
-  url: postgres://codeboxx:Codeboxx1!:codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com:5432/lukagasic
+  url: <%= ENV['PG_URL'] %>
