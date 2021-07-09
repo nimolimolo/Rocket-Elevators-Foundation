@@ -27,6 +27,7 @@ gem 'figaro', '~> 1.2'
 gem 'faraday', '~> 1.4', '>= 1.4.3'
 gem 'oauth2', '~> 1.4', '>= 1.4.7'
 
+gem 'graphql'
 
 
 
@@ -103,5 +104,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # gem 'rubygems' 
 gem 'twilio-ruby', '~> 5.55.0'
 
-gem 'graphql', '~> 1.9.2'
-gem 'graphiql-rails', '~> 1.4.11'
+
+gem 'graphiql-rails'
