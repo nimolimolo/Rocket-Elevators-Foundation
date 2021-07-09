@@ -5,7 +5,7 @@ default: &default
   host: <%= ENV['DB_HOST'] %>
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
-  url: mysql://codeboxx:Codeboxx1!@codeboxx.cq6zrczewpu2.us-east-1.rds.amazonaws.com:3306/lukagasic
+  url: mysql2://codeboxx:Codeboxx1!@codeboxx.cq6zrczewpu2.us-east-1.rds.amazonaws.com:3306/lukagasic
 
 development:
  <<: *default
