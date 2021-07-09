@@ -21,6 +21,7 @@ datawarehouse_development:
   password: <%= ENV['DB_PASSWORD'] %>
   adapter: postgresql
   encoding: unicode
+  port: 5432
   
 datawarehouse_production:
   host: <%= ENV['DB_HOST2'] %>
@@ -29,3 +30,4 @@ datawarehouse_production:
   password: <%= ENV['DB_PASSWORD'] %>
   adapter: postgresql
   encoding: unicode
+  port: 5432
