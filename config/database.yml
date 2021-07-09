@@ -22,7 +22,7 @@ datawarehouse_development:
   adapter: postgresql
   encoding: unicode
   port: 5432
-  url: postgresql://codeboxx:Codeboxx1!:codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com:5432/lukagasic
+  url: postgres://codeboxx:Codeboxx1!@codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com:5432/lukagasic
   
 datawarehouse_production:
   host: <%= ENV['DB_HOST2'] %>
@@ -32,4 +32,4 @@ datawarehouse_production:
   adapter: postgresql
   encoding: unicode
   port: 5432
-  url: postgresql://codeboxx:Codeboxx1!:codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com:5432/lukagasic
+  url: postgres://codeboxx:Codeboxx1!@codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com:5432/lukagasic
