@@ -1,0 +1,31 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  port: <%= ENV['DB_PORT'] %>
+  host: <%= ENV['DB_HOST'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+
+development:
+ <<: *default
+database: <%= ENV['DB_NAME'] %>
+
+production:
+ <<: *default
+ database: <%= ENV['DB_NAME'] %>
+
+datawarehouse_development:
+  host: <%= ENV['DB_HOST2'] %>
+  database: <%= ENV['DB_NAME2'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  
+datawarehouse_production:
+  host: <%= ENV['DB_HOST2'] %>
+  database: <%= ENV['DB_NAME2'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
