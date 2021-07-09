@@ -105,4 +105,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'twilio-ruby', '~> 5.55.0'
 
 
-gem 'graphiql-rails', group: :development
+gem 'graphiql-rails'
