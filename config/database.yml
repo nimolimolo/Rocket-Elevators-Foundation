@@ -5,7 +5,6 @@ default: &default
   host: <%= ENV['DB_HOST'] %>
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
-  #url: <%= ENV['MYSQL_URL'] %>
 
 development:
  <<: *default
@@ -23,7 +22,7 @@ datawarehouse_development:
   adapter: postgresql
   encoding: unicode
   port: 5432
-  #url: <%= ENV['PG_URL'] %>
+  url: <%= URI.encode(ENV['DATABASE_URL'] )%>
   
 datawarehouse_production:
   host: <%= ENV['DB_HOST2'] %>
@@ -33,4 +32,4 @@ datawarehouse_production:
   adapter: postgresql
   encoding: unicode
   port: 5432
-  #url: <%= ENV['PG_URL'] %>
+  url: <%= URI.encode(ENV['DATABASE_URL'] )%>
