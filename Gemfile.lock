@@ -134,10 +134,10 @@ GEM
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     gmaps4rails (2.1.2)
-    graphiql-rails (1.7.0)
+    graphiql-rails (1.4.11)
       railties
       sprockets-rails
-    graphql (1.12.13)
+    graphql (1.9.21)
     haml (5.2.1)
       temple (>= 0.8.0)
       tilt
@@ -382,8 +382,8 @@ DEPENDENCIES
   figaro (~> 1.2)
   geocoder
   gmaps4rails
-  graphiql-rails
-  graphql
+  graphiql-rails (~> 1.4.11)
+  graphql (~> 1.9.2)
   ibm_watson (~> 1.3.1)
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
