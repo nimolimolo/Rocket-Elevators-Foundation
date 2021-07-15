@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :interventions
   mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
   
   post "/graphql", to: "graphql#execute"
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
 	get "/quote", to: "rocket#quote"
 	get "/residential", to: "rocket#residential"
 	get "/commercial", to: "rocket#commercial"
+	get "/intervention", to: "rocket#intervention"
 	mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 	post "/admin/briefing/watsonbriefing", to: "watson#watsonBriefing"
 	resources :employees

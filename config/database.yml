@@ -1,36 +1,33 @@
 default: &default
-  adapter: mysql2
-  encoding: utf8
-  port: <%= ENV['DB_PORT'] %>
-  host: <%= ENV['DB_HOST'] %>
-  username: <%= ENV['DB_USERNAME'] %>
-  password: <%= ENV['DB_PASSWORD'] %>
-  url: <%= ENV['DB_MYSQL'] %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
- <<: *default
-database: <%= ENV['DB_NAME'] %>
+  <<: *default
+  username: root
+  password:
+  adapter: mysql2
+  encoding: utf8
+  socket: /var/run/mysqld/mysqld.sock
+  database: rocket_development
 
 production:
- <<: *default
- database: <%= ENV['DB_NAME'] %>
+  <<: *default
+  database: rocket_production
+  username: rocket
+  password: <%= ENV['ROCKET_DATABASE_PASSWORD'] %>
 
 datawarehouse_development:
-  host: <%= ENV['DB_HOST2'] %>
-  database: <%= ENV['DB_NAME2'] %>
-  username: <%= ENV['DB_USERNAME'] %>
-  password: <%= ENV['DB_PASSWORD'] %>
+  <<: *default
+  host: localhost
+  username: postgres
+  password: postgres
   adapter: postgresql
   encoding: unicode
-  port: 5432
-  url: <%= ENV['DB_POSTGRES'] %>
-  
+  database: datawarehouse_development
+
 datawarehouse_production:
-  host: <%= ENV['DB_HOST2'] %>
-  database: <%= ENV['DB_NAME2'] %>
-  username: <%= ENV['DB_USERNAME'] %>
-  password: <%= ENV['DB_PASSWORD'] %>
+  <<: *default
+  username: postgres
   adapter: postgresql
   encoding: unicode
-  port: 5432
-  url: <%= ENV['DB_POSTGRES'] %>
+  url: <%= ENV['DATAWAREHOUSE_DATABASE_URL'] %>
