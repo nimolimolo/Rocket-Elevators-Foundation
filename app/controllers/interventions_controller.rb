@@ -16,7 +16,7 @@ class InterventionsController < ApplicationController
   end
 
   def get_building
-    @buildings = Building.where("customer_id = ?", params[:customerid])
+    @buildings = Building.where("customer_id = ?", params[:customer_id])
     if request.xhr?
       respond_to do |format|
           format.json { render :json => @buildings }

@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 	resources :employees
 	get 'home/index'
 	get 'home_controller/index'
+	get 'get_building/:customer_id', to: 'interventions#get_building'
 	devise_for :users     
 
 	post "/quotes/create", to: "quotes#create"

@@ -1,40 +1,5 @@
 <div>
-<script 
-src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-</script>
-<script>
-$(function() {
-$("#intervention_buildingid").prop("disabled", true); // second dropdown is disable while first dropdown is empty
-$("#intervention_customerid").change(function(){
-  	var customer = $(this).val();
-    console.log("===================================");
-  	if(customer !== ''){
-  		$("#intervention_buildingid").prop("disabled", true);
-  	}else{
-  		$("#intervention_buildingid").prop("disabled", false);
-  	}
-  	$.ajax({
-	    url: "/get_building/" + customer,
-	    method: "GET",  
-	    dataType: "json",
-	    error: function (xhr, status, error) {
-	      	console.error('AJAX Error: ' + status + error);
-	    },
-	    success: function (response) {
-	      	console.log(response);
-	      	var building = response;
-	      	$("#intervention_buildingid").empty();
-
-	      	$("#intervention_buildingid").append('<option>Select Task</option>');
-	      	for(var i = 0; i < building.length; i++){
-	      		$("#intervention_buildingid").append('<option value="' + building[i]["id"] + '">' +building[i]["id"] + '</option>');
-	      	}
-	    }
-  	});
-});
-});
-
-</script>
+<%= javascript_include_tag "application" %>
 <%= form_for :intervention, url: url_for(controller: 'interventions', action: 'create'), :html =>{id: "interventionSubmit", :class => "text-center"} do |form| %>
 
   <div class="field text-center">
@@ -43,32 +8,32 @@ $("#intervention_customerid").change(function(){
   </div>
 
   <div class="field text-center">
-    <%= form.label :customerid %>
+    <%= form.label :customerid, "Customer" %>
     <%= form.select(:customerid, Customer.all.collect {|p| [p.CompanyName, p.id]},  {prompt: "Select"}, {class: 'form-control'})%>
   </div>
 
   <div class="field text-center">
-    <%= form.label :buildingid %>
+    <%= form.label :buildingid, "Building ID" %>
     <%= form.select :buildingid, Building.all.collect {|p| [p.id]} %>
   </div>
 
   <div class="field text-center">
-    <%= form.label :batteryid %>
+    <%= form.label :batteryid, "Battery ID" %>
     <%= form.select :batteryid, Battery.all.collect {|p| [p.id]} %>
   </div>
 
   <div class="field text-center">
-    <%= form.label :columnid %>
+    <%= form.label :columnid, "Column ID" %>
     <%= form.select :columnid, Column.all.collect {|p| [p.id]} %>
   </div>
 
   <div class="field text-center">
-    <%= form.label :elevatorid %>
+    <%= form.label :elevatorid, "Elevator ID" %>
     <%= form.select :elevatorid, Elevator.all.collect {|p| [p.id]} %>
   </div>
 
   <div class="field text-center">
-    <%= form.label :employeeid %>
+    <%= form.label :employeeid, "Employee ID" %>
     <%= form.select :employeeid, Employee.all.collect {|p| [p.id]} %>
   </div>
 

@@ -31,9 +31,17 @@
 							</a>
 						</li>
 						<li><!-- SERVICES -->
-							<a href="/index#services" id="services-nav">
-								SERVICES
-							</a>
+							<li class="dropdown">
+								<a class="dropdown-toggle" id="services-nav" href="index#services" >
+									SERVICES
+								</a>
+								<ul class="dropdown-menu">
+									<li><a href="/residential">Residential</a></li>
+									<li><a href="/commercial">Commercial</a></li>
+									<% if has_role?(:admin) %>
+									<li><a href="/intervention">Intervention</a></li>
+									<% end %>
+							</ul>
 						</li>
 						<li><!-- PORTFOLIO -->
 							<a href="/index#portfolio" id="portfolio-nav">
