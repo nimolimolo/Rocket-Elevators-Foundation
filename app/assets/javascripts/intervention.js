@@ -3,11 +3,6 @@ $(function() {
     $("#intervention_batteryid").prop("hidden", true);
     $("#intervention_columnid").prop("hidden", true);
     $("#intervention_elevatorid").prop("hidden", true);
-    $("#intervention_result").prop("hidden", true);
-    $("#intervention_status").prop("hidden", true);
-    $("#intervention_author").prop("hidden", true);
-    $("#intervention_status").append("Pending");
-    $("#intervention_result").append("Incomplete");
 
     $("#intervention_customerid").change(function(){
           var customer = $(this).val();

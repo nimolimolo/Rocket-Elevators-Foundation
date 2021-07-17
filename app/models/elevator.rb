@@ -34,6 +34,6 @@ class Elevator < ApplicationRecord
           puts message.sid
               
         end
-      end
+    end
 end
 

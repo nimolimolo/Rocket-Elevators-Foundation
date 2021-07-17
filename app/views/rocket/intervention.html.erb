@@ -3,10 +3,6 @@
 <%= form_for :intervention, url: url_for(controller: 'interventions', action: 'create'), :html =>{id: "interventionSubmit", :class => "text-center"} do |form| %>
 
   <div class="field text-center">
-    <%= form.number_field :author, value: @currentUser %>
-  </div>
-
-  <div class="field text-center">
     <%= form.label :customerid, "Customer" %>
     <%= form.select :customerid, Customer.all.collect {|p| [p.CompanyName, p.id]},  {prompt: "Select Customer"}%>
   </div>
@@ -37,18 +33,10 @@
   </div>
 
   <div class="field text-center">
-    <%= form.text_field :result %>
-  </div>
-
-  <div class="field text-center">
     <%= form.label :report %>
     <%= form.text_area :report %>
   </div>
-
-  <div class="field text-center">
-    <%= form.text_field :status %>
-  </div>
-
+  
   <div class="actions text-center">
     <%= form.submit %>
   </div>

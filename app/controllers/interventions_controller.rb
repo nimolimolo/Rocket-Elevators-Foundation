@@ -4,7 +4,11 @@ class InterventionsController < ApplicationController
   # GET /interventions or /interventions.json
   def index
     @interventions = Intervention.all
-    @currentUser = current_user.id
+    if current_user
+      @sheets = current_user.time_sheets
+    else
+      redirect_to new_user_session_path, notice: 'You are not logged in.'
+    end
   end
 
   # GET /interventions/1 or /interventions/1.json
@@ -69,7 +73,7 @@ class InterventionsController < ApplicationController
 
   # POST /interventions or /interventions.json
   def create
-    @intervention = Intervention.new(intervention_params)
+    @intervention = Intervention.new(intervention_params.merge(author: current_user.id))
 
     respond_to do |format|
       if @intervention.save
