@@ -4,6 +4,7 @@ class InterventionsController < ApplicationController
   # GET /interventions or /interventions.json
   def index
     @interventions = Intervention.all
+    @currentUser = current_user.id
   end
 
   # GET /interventions/1 or /interventions/1.json
@@ -23,6 +24,44 @@ class InterventionsController < ApplicationController
       end
     end
   end
+
+  def get_battery
+    @batteries = Battery.where("building_id = ?", params[:building_id])
+    if request.xhr?
+      respond_to do |format|
+          format.json { render :json => @batteries }
+      end
+    end
+  end
+  
+  def get_column
+    @columns = Column.where("battery_id = ?", params[:battery_id])
+    if request.xhr?
+      respond_to do |format|
+          format.json { render :json => @columns }
+      end
+    end
+  end
+
+  def get_elevator
+    @elevators = Elevator.where("column_id = ?", params[:column_id])
+    if request.xhr?
+      respond_to do |format|
+          format.json { render :json => @elevators }
+      end
+    end
+  end
+
+  def get_employee
+    @employees = Employee.where("elevator_id = ?", params[:elevator_id])
+    if request.xhr?
+      respond_to do |format|
+          format.json { render :json => @employees }
+      end
+    end
+  end
+
+  
 
   # GET /interventions/1/edit
   def edit
@@ -73,6 +112,6 @@ class InterventionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def intervention_params
-      params.require(:intervention).permit(:author, :customerid, :buildingid, :batteryid, :columnid, :elevatorid, :employeeid, :startdate, :enddate, :result, :report, :status)
+      params.require(:intervention).permit(:author, :customerid, :buildingid, :batteryid, :columnid, :elevatorid, :employeeid, :result, :report, :status)
     end
 end

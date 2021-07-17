@@ -3,52 +3,40 @@
 <%= form_for :intervention, url: url_for(controller: 'interventions', action: 'create'), :html =>{id: "interventionSubmit", :class => "text-center"} do |form| %>
 
   <div class="field text-center">
-    <%= form.label :author %>
-    <%= form.number_field :author %>
+    <%= form.number_field :author, value: @currentUser %>
   </div>
 
   <div class="field text-center">
     <%= form.label :customerid, "Customer" %>
-    <%= form.select(:customerid, Customer.all.collect {|p| [p.CompanyName, p.id]},  {prompt: "Select"}, {class: 'form-control'})%>
+    <%= form.select :customerid, Customer.all.collect {|p| [p.CompanyName, p.id]},  {prompt: "Select Customer"}%>
   </div>
 
   <div class="field text-center">
     <%= form.label :buildingid, "Building ID" %>
-    <%= form.select :buildingid, Building.all.collect {|p| [p.id]} %>
+    <%= form.select :buildingid, Building.all.collect {|p| [p.id, p.id]} %>
   </div>
 
   <div class="field text-center">
     <%= form.label :batteryid, "Battery ID" %>
-    <%= form.select :batteryid, Battery.all.collect {|p| [p.id]} %>
+    <%= form.select :batteryid, Battery.all.collect {|p| [p.id, p.id]} %>
   </div>
 
   <div class="field text-center">
     <%= form.label :columnid, "Column ID" %>
-    <%= form.select :columnid, Column.all.collect {|p| [p.id]} %>
+    <%= form.select :columnid, Column.all.collect {|p| [p.id, p.id]} %>
   </div>
 
   <div class="field text-center">
     <%= form.label :elevatorid, "Elevator ID" %>
-    <%= form.select :elevatorid, Elevator.all.collect {|p| [p.id]} %>
+    <%= form.select :elevatorid, Elevator.all.collect {|p| [p.id, p.id]} %>
   </div>
 
   <div class="field text-center">
-    <%= form.label :employeeid, "Employee ID" %>
-    <%= form.select :employeeid, Employee.all.collect {|p| [p.id]} %>
+    <%= form.label :employeeid, "Employee" %>
+    <%= form.select :employeeid, Employee.all.collect {|p| [p.id, p.id]},  {prompt: "None"} %>
   </div>
 
   <div class="field text-center">
-    <%= form.label :startdate %>
-    <%= form.text_field :startdate %>
-  </div>
-
-  <div class="field text-center">
-    <%= form.label :enddate %>
-    <%= form.text_field :enddate %>
-  </div>
-
-  <div class="field text-center">
-    <%= form.label :result %>
     <%= form.text_field :result %>
   </div>
 
@@ -58,7 +46,6 @@
   </div>
 
   <div class="field text-center">
-    <%= form.label :status %>
     <%= form.text_field :status %>
   </div>
 

@@ -26,6 +26,9 @@ Rails.application.routes.draw do
 	get 'home/index'
 	get 'home_controller/index'
 	get 'get_building/:customer_id', to: 'interventions#get_building'
+	get 'get_battery/:building_id', to: 'interventions#get_battery'
+	get 'get_column/:battery_id', to: 'interventions#get_column'
+	get 'get_elevator/:column_id', to: 'interventions#get_elevator'
 	devise_for :users     
 
 	post "/quotes/create", to: "quotes#create"
